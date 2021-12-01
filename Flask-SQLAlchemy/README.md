@@ -38,4 +38,5 @@ db.app = app
 db.create_all()
 ```
 
+  
 ![image](https://user-images.githubusercontent.com/29765855/144260821-02ab29b6-1ac5-4dc2-957d-51898faabd14.png)
