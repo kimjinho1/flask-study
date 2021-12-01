@@ -1,8 +1,8 @@
 # Flask-SQLAlchemy
 
-## Python ORM인 flask-sqlalchemy를 통해 flask 안에서 데이터베이스를 쉽게 관리할 수 있다
+## Python ORM인 flask-sqlalchemy를 통해 flask 안에서 데이터베이스를 쉽게 관리할 수 있다.
 
-### ORM(Object-Relational Mapping): 데이터베이스와 객체 지향 프로그래밍 언어 간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법
+#### ORM(Object-Relational Mapping): 데이터베이스와 객체 지향 프로그래밍 언어 간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법
 
 **이와 같은 ORM을 사용하면 SQL을 사용하지 않고 Python만으로도 객체 간의 관계를 풀어낼 수가 있다.**  
 **-> 개발자가 객체지향적인 코드 덕분에 비즈니스 로직에 더 집중을 할 수 있다.**  
