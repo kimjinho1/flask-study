@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, session
 from flask_wtf.csrf import CSRFProtect
 from forms import RegisterForm, LoginForm
 
@@ -9,7 +9,22 @@ from models import User
 
 app = Flask(__name__)
 
-@app.route('/register', methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        session["userid"] = form.data.get("userid")
+        
+        userid = form.data.get("userid")
+        password = form.data.get("password")
+        
+        print(userid, password)
+    
+        return redirect('/')
+    
+    return render_template("login.html", form=form)
+
+@app.route("/register", methods=["GET", "POST"])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -20,34 +35,21 @@ def register():
         
         db.session.add(user)
         db.session.commit()
-        print("Success")
     
         return redirect('/')
     
     return render_template("register.html", form=form)
 
-@app.route('/login', methods=["GET", "POST"])
-def login():
-    login_form = LoginForm()
-    if login_form.validate_on_submit():
-        id = login_form.data.get("id")
-        password = login_form.data.get("password")
-        
-        print(id, password)
-    
-        return redirect('/')
-    
-    return render_template("login.html", form=login_form)
-
 @app.route('/')
 def hello_world():
-    return render_template("index.html")
+    userid = session.get("userid", None)
+    return render_template("index.html", userid=userid)
 
 if __name__ == "__main__":
     basedir = os.path.abspath(os.path.dirname(__file__))
     dbfile = os.path.join(basedir, "db.sqlite")
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + dbfile
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + dbfile
     app.config["SQLALCHEMY_COMMIT_ON_TEARDOWN"] = True
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SECRET_KEY"] = "absdfaweghrhrlsasdfasdgdsa"
