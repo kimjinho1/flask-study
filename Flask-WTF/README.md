@@ -46,7 +46,7 @@ class RegisterForm(FlaskForm):
 
 ```html
 <form method="POST">
-    {{ form.csrf_to }}
+    {{ form.csrf_token }}
     <div class="form-group">
         {{ form.userid.label("아이디") }}
         {{ form.userid(class="form-control", placeholder="아이디") }}

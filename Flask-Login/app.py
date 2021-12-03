@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask import render_template, request, redirect
 from flask_wtf.csrf import CSRFProtect
-from forms import RegisterForm
+from forms import RegisterForm, LoginForm
 
 from models import db
 from models import User
@@ -26,6 +26,19 @@ def register():
     
     return render_template("register.html", form=form)
 
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    login_form = LoginForm()
+    if login_form.validate_on_submit():
+        id = login_form.data.get("id")
+        password = login_form.data.get("password")
+        
+        print(id, password)
+    
+        return redirect('/')
+    
+    return render_template("login.html", form=login_form)
+
 @app.route('/')
 def hello_world():
     return render_template("index.html")
@@ -38,7 +51,8 @@ if __name__ == "__main__":
     app.config["SQLALCHEMY_COMMIT_ON_TEARDOWN"] = True
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SECRET_KEY"] = "absdfaweghrhrlsasdfasdgdsa"
-
+    app.config["SESSION_COOKIE_SECURE"] = True
+    
     csrf = CSRFProtect()
     csrf.init_app(app)
     

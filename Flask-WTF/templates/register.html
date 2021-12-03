@@ -23,7 +23,7 @@
         <div class="row mt-5">
             <div class="col-12">
                 <form method="POST">
-                    {{ form.csrf_to }}
+                    {{ form.csrf_token }}
                     <div class="form-group">
                         {{ form.userid.label("아이디") }}
                         {{ form.userid(class="form-control", placeholder="아이디") }}
