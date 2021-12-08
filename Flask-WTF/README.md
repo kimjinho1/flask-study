@@ -42,7 +42,7 @@ class RegisterForm(FlaskForm):
 </form>
 ```
 
-**이렇게 바꿔 사용할 수 있다. 훨씬 깔끔한 것 같다.**
+**이렇게 바꿔 사용할 수 있다. 훨씬 깔끔하다.**
 
 ```html
 <form method="POST">
