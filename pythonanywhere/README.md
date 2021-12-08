@@ -27,3 +27,6 @@
 
 **7 Web으로 넘어와 Reload를 클릭하면 끝이다!**
 ![image](https://user-images.githubusercontent.com/29765855/145249820-c66d102d-8990-4cbb-86fb-9252e5a79188.png)
+
+잘 접속되는 것을 확인할 수 있다!!
+![image](https://user-images.githubusercontent.com/29765855/145253592-8a32afe4-4510-4c0d-acaf-194ebed0518a.png)
