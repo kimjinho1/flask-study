@@ -6,5 +6,5 @@
 **Flask-WTF(Form, Validation, CSRF)**  
 **Flask-Static(Static 파일 관리)**  
 **Flask-Login(로그인, 로그아웃, Validation 함수 구현)**  
-**pythonanywhere(배포)**
-
+**pythonanywhere(배포)**  
+**Flask-Blueprint(Blueprint, REST API, CRUD)**  
